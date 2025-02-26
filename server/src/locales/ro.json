@@ -1,0 +1,24 @@
+{
+  "email_taken": "Acest email este deja folosit. Te rog să alegi altul.",
+  "email_empty": "Email-ul este necesar.",
+  "name_empty": "Numele este necesar.",
+  "password_empty": "Parola este necesară.",
+  "gender_empty": "Genul este necesar.",
+  "username_taken": "Acest nume de utilizator este deja folosit. Te rugăm să alegi altul.",
+  "username_empty": "Numele de utilizator este necesar.",
+  "phone_empty": "Numărul de telefon este necesar.",
+  "register_success": "Te-ai înregistrat cu succes.",
+  "register_error": "A apărut o eroare la înregistrare.",
+  "token_not_found": "Nu ești conectat pentru a accesa această pagină.",
+  "token_valid": "Token-ul este valid.",
+  "token_invalid": "Token-ul este invalid sau expirat. Te rog să te loghezi din nou.",
+  "invalid_email_or_password": "Email sau parolă invalidă.",
+
+  "gender": {
+    "female": "feminin",
+    "male": "masculin",
+    "prefer_not_to_say": "prefer să nu spun"
+  },
+
+  "user": "ultilizator"
+}

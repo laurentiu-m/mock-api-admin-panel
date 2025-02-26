@@ -1,0 +1,24 @@
+{
+  "email_taken": "This email is already taken. Please choose another.",
+  "email_empty": "Email is required.",
+  "name_empty": "First name is required.",
+  "password_empty": "Password is required.",
+  "gender_empty": "Gender is required.",
+  "username_taken": "This username is already taken. Please choose another.",
+  "username_empty": "Username is required.",
+  "phone_empty": "Phone number is required.",
+  "register_success": "You've been registered successfully",
+  "register_error": "An error occurred during registration",
+  "token_not_found": "You are not login to access this page",
+  "token_valid": "Token is valid",
+  "token_invalid": "Token is invalid or expired. Please log in again.",
+  "invalid_email_or_password": "Invalid email or password",
+
+  "gender": {
+    "female": "female",
+    "male": "male",
+    "prefer_not_to_say": "prefer not to say"
+  },
+
+  "user": "user"
+}
