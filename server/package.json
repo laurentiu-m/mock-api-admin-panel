@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "curl -o db.json https://jsonplaceholder.typicode.com/db && concurrently \"ts-node src/index.ts\" \"sleep 5 && ts-node src/scripts/updateUsersData.ts\"",
+    "start": "curl -o db.json https://jsonplaceholder.typicode.com/db && concurrently \"ts-node src/index.ts\" \"wait-on http://localhost:8000 && ts-node src/scripts/updateUsersData.ts\"",
     "dev": "nodemon --exec ts-node src/index.ts",
     "init-db": "curl -o db.json https://jsonplaceholder.typicode.com/db",
     "update-users": "ts-node src/scripts/updateUsersData.ts",
@@ -24,7 +24,8 @@
     "i18next": "^24.2.2",
     "i18next-fs-backend": "^2.6.0",
     "i18next-http-middleware": "^3.7.1",
-    "jsonwebtoken": "^9.0.2"
+    "jsonwebtoken": "^9.0.2",
+    "wait-on": "^8.0.2"
   },
   "devDependencies": {
     "@faker-js/faker": "^9.3.0",
