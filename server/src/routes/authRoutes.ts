@@ -18,6 +18,8 @@ const db = jsonServer.router(config.db).db;
 const router = Router();
 
 router.post("/login", (req: Request, res: Response) => {
+  db.read();
+
   const { email, password }: LoginUser = req.body;
 
   const users: User[] = db.get("users").value();
