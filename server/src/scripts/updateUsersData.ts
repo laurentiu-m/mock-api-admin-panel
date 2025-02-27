@@ -1,11 +1,15 @@
 import { faker } from "@faker-js/faker";
-import { axiosInstance } from "../api/axios";
 import { User } from "../types";
+import jsonServer from "json-server";
+import dotenv from "dotenv";
 
-const getUsers = async (): Promise<User[]> => {
-  const response = await axiosInstance.get<User[]>("/users");
-  return response.data;
+dotenv.config();
+
+const config = {
+  db: "./db.json",
 };
+
+const db = jsonServer.router(config.db).db;
 
 const updateUser = (user: User): User => {
   return {
@@ -17,16 +21,13 @@ const updateUser = (user: User): User => {
 };
 
 const updateUsersData = async () => {
-  try {
-    const users = await getUsers();
+  const users = db.get("users").value();
 
-    for (const user of users) {
-      const updatedUser = updateUser(user);
-      await axiosInstance.patch(`/users/${user.id}`, updatedUser);
-    }
-  } catch (error) {
-    console.error("Error fetching data: ", error);
-  }
+  const updatedUsers = users.map((user) => updateUser(user));
+
+  Object.assign(users, updatedUsers);
+
+  db.write();
 };
 
 updateUsersData();
