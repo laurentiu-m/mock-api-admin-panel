@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "curl -o db.json https://jsonplaceholder.typicode.com/db && concurrently \"ts-node src/index.ts\" \"wait-on https://mock-api-admin-panel.onrender.com && ts-node src/scripts/updateUsersData.ts\"",
+    "start": "curl -o db.json https://jsonplaceholder.typicode.com/db && concurrently -k \"ts-node src/index.ts\" \"wait-on tcp:$(grep 'process.env.PORT || 3000' src/index.ts | awk -F: '{print $2}' | tr -d ' );')\" && ts-node src/scripts/updateUsersData.ts\"",
     "dev": "nodemon --exec ts-node src/index.ts",
     "init-db": "curl -o db.json https://jsonplaceholder.typicode.com/db",
     "update-users": "ts-node src/scripts/updateUsersData.ts",
